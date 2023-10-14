@@ -13,6 +13,9 @@ import os
 import logging
 from werkzeug.utils import secure_filename
 from io import BytesIO
+from PaLM_script import *
+import google.generativeai as palm
+import re
 
 logging.basicConfig(level=logging.INFO)
 
@@ -75,11 +78,17 @@ def upload():
 
 	return jsonify(d)
 
+@app.route('/gpt', methods=['POST'])
+def analysis():
+    data = request.json
+    values = data.values()
+    output = generate_text(values[1], values[2], values[3], values[6], values[7], values[8], loan_purp[13], loan_purp[-1])
+    dict = {
+        'predict':output
+        }
+    json_object = json.dumps(dict, indent=4)
+	return json_object
 	
 # Running app
 if __name__ == '__main__':
 	app.run(debug=True)
-
-# flask_cors.CORS(app, expose_headers='Authorization')
-
-
