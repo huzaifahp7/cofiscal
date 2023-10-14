@@ -64,7 +64,7 @@ test_set_with_probs['Prob_1'] = y_test_prob
 test_set_with_probs['Default'] = y_test  # Add 'Default' back
 
 # Save the test set with probabilities to a CSV file
-test_set_with_probs.to_csv('models/test.csv', index=False)
+test_set_with_probs.to_csv('output/test.csv', index=False)
 
 # Create a test set with remaining 0s and 1s
 unseen_X = data.loc[~data.index.isin(balanced_data.index)].drop(columns=['Ind','Default'])
@@ -87,7 +87,7 @@ unseen_test_set_with_probs['Prob_1'] = unseen_test_prob
 unseen_test_set_with_probs['Default'] = unseen_y  # Add 'Default' back
 
 # Save the unseen test set with probabilities to a CSV file
-unseen_test_set_with_probs.to_csv('models/unseen_test.csv', index=False)
+unseen_test_set_with_probs.to_csv('output/unseen_test.csv', index=False)
 
 # Create DataFrames for metrics
 test_metrics = pd.DataFrame({
@@ -101,8 +101,8 @@ unseen_test_metrics = pd.DataFrame({
 })
 
 # Save metrics to CSV files
-test_metrics.to_csv('models/test_metrics.csv', index=False)
-unseen_test_metrics.to_csv('models/unseen_test_metrics.csv', index=False)
+test_metrics.to_csv('output/test_metrics.csv', index=False)
+unseen_test_metrics.to_csv('output/unseen_test_metrics.csv', index=False)
 print("\nUnseen Test Set Metrics:")
 print(f"Accuracy: {unseen_test_accuracy}")
 print(f"Precision: {unseen_test_precision}")
