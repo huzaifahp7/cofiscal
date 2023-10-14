@@ -1,8 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import ReactSelect from "react-select";
+import Router, { useRouter } from "next/navigation";
 
 const LoanApplicationForm = () => {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     age: 0,
     income: 0,
@@ -13,27 +16,27 @@ const LoanApplicationForm = () => {
     interestRate: 0,
     loanTerm: 0,
     debtToIncomeRatio: 0,
-    education: "",
-    employmentType: "",
-    maritalStatus: "",
-    mortgage: false,
-    dependents: "",
-    loanPurpose: "",
-    coSigner: false,
+    education: 0,
+    employmentType: 0,
+    maritalStatus: 0,
+    mortgage: 0,
+    dependents: 0,
+    loanPurpose: 0,
+    coSigner: 0,
   });
 
   const [errors, setErrors] = useState({});
 
   const educationOptions = [
-    { value: "High School", label: "High School" },
-    { value: "Bachelor's", label: "Bachelor's" },
-    { value: "Master's", label: "Master's" },
-    { value: "PhD", label: "PhD" },
+    { value: 3, label: "High School" },
+    { value: 1, label: "Bachelor's" },
+    { value: 2, label: "Master's" },
+    { value: 4, label: "PhD" },
   ];
 
   const booleanOptions = [
-    { value: "Yes", label: "Yes" },
-    { value: "No", label: "No" },
+    { value: 1, label: "Yes" },
+    { value: 0, label: "No" },
   ];
 
   const handleInputChange = (e) => {
@@ -48,21 +51,28 @@ const LoanApplicationForm = () => {
     e.preventDefault();
     const newErrors = {};
 
-    // make error handling here
-
     setErrors(newErrors);
 
     // If no errors, submit the form data
     if (Object.keys(newErrors).length === 0) {
       // Handle form submission, e.g., send data to the server
       console.log(formData);
+      router.push("/output?" + objectToQueryString(formData))
     }
   };
+
+  function objectToQueryString(obj) {
+    const keys = Object.keys(obj);
+    const keyValuePairs = keys.map(key => {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]);
+    });
+    return keyValuePairs.join('&');
+  }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full items-center h-fit bg-gradient-to-br from-red-500 via-violet-700 to-violet-700 p-40"
+      className="w-full items-center h-fit bg-gradient-to-br from-cyan-400 via-violet-700 to-violet-700 p-40"
     >
       <div className="grid grid-cols-2 gap-x-32 gap-y-5">
         <div className="flex flex-col">
@@ -228,10 +238,10 @@ const LoanApplicationForm = () => {
               });
             }}
             options={[
-              { value: "Full-time", label: "Full-time" },
-              { value: "Unemployed", label: "Unemployed" },
-              { value: "Part-time", label: "Part-time" },
-              { value: "Self-employed", label: "Self-employed" },
+              { value: 1, label: "Full-time" },
+              { value: 2, label: "Unemployed" },
+              { value: 4, label: "Part-time" },
+              { value: 3, label: "Self-employed" },
             ]}
             classNames={{
               option: (state) => "rounded-xl",
@@ -257,9 +267,9 @@ const LoanApplicationForm = () => {
               });
             }}
             options={[
-              { value: "Divorced", label: "Divorced" },
-              { value: "Married", label: "Married" },
-              { value: "Single", label: "Single" },
+              { value: 1, label: "Divorced" },
+              { value: 2, label: "Married" },
+              { value: 3, label: "Single" },
             ]}
             classNames={{
               option: (state) => "rounded-xl",
@@ -333,11 +343,11 @@ const LoanApplicationForm = () => {
               });
             }}
             options={[
-              { value: "Auto", label: "Auto" },
-              { value: "Education", label: "Education" },
-              { value: "Home", label: "Home" },
-              { value: "Business", label: "Business" },
-              { value: "Other", label: "Other" },
+              { value: 2, label: "Auto" },
+              { value: 5, label: "Education" },
+              { value: 4, label: "Home" },
+              { value: 3, label: "Business" },
+              { value: 1, label: "Other" },
             ]}
             classNames={{
               option: (state) => "rounded-xl",
