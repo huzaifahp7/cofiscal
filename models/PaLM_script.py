@@ -4,7 +4,12 @@ import re
 palm.configure(api_key='AIzaSyAedmPMHxXBrjTQFgOoypvQIYZLiz6L21k')
 
 def generate_text(income, loan_amt, credit_score, interest_rate, loan_term, dti_ratio, loan_purp,prob_def):
-
+    typ = {1:"Other",
+           2:"Auto",
+           3:"Business",
+           4:"Home",
+           5:"Education"}
+    loan_purp = typ[loan_purp]
     prompt = '''Discard all the previous instructions.
     Behave like you are a financial expert and are an expert at analyzing risks of defaulting 
     while taking a loan. Given my annual income of '''
