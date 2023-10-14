@@ -62,7 +62,7 @@ const LoanApplicationForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full items-center h-fit bg-gradient-to-br from-cyan-400 via-violet-700 to-violet-700 p-40"
+      className="w-full items-center h-fit bg-gradient-to-br from-red-500 via-violet-700 to-violet-700 p-40"
     >
       <div className="grid grid-cols-2 gap-x-32 gap-y-5">
         <div className="flex flex-col">
