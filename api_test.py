@@ -16,6 +16,9 @@ from io import BytesIO
 from PaLM_script import *
 import google.generativeai as palm
 import re
+import pytesseract
+import re
+from pdf2image import convert_from_path
 
 logging.basicConfig(level=logging.INFO)
 
@@ -65,18 +68,21 @@ def upload():
 	d = dict()
 	try:
 		file = request.files['file_from_react']
-		filename = file.filename
-		print(f"Uploading file {filename}")
-		file_bytes = file.read()
-		file_content = BytesIO(file_bytes).readlines()
-		print(file_content)
+        if file:
+            if not os.path.exists(UPLOAD_FOLDER):
+                os.makedirs(UPLOAD_FOLDER)
+            filename = secure_filename(file.filename)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
 		d['status'] = 1
-	
+        output = extract_features_from_pdf(file_path)
+        ocr = {'Read':output}
 	except Exception as e:
 		print(f"Couldn't upload file {e}")
 		d['status'] = 0
 
-	return jsonify(d)
+    json_object = json.dumps(ocr, indent=4)
+    return json_object
 
 @app.route('/gpt', methods=['POST'])
 def analysis():
@@ -88,6 +94,7 @@ def analysis():
         }
     json_object = json.dumps(dict, indent=4)
 	return json_object
+    
 	
 # Running app
 if __name__ == '__main__':
