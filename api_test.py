@@ -1,5 +1,5 @@
 # Import flask and datetime module for showing date and time
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, Response, session
 import datetime
 from flask_cors import CORS
 import sys
@@ -9,8 +9,17 @@ import pickle
 import joblib
 import pandas as pd
 from neighbours import *
+import os
+import logging
+from werkzeug.utils import secure_filename
+from io import BytesIO
+
+logging.basicConfig(level=logging.INFO)
+
+logger = logging.getLogger('HELLO WORLD')
 
 x = datetime.datetime.now()
+UPLOAD_FOLDER = '/'
 
 # Initializing flask app
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
@@ -47,36 +56,30 @@ def model():
 	return json_object
     
 
-# Route for seeing a data
-@app.route('/hello')
-def get_time():
-
-	# Returning an api for showing in reactjs
-	return {
-		'Name':"geek", 
-		"Age":"22",
-		"Date":x, 
-		"programming":"python"
-		}
-
 @app.route('/upload', methods=['POST'])
-def fileUpload():
-    target=os.path.join(UPLOAD_FOLDER,'test_docs')
-    if not os.path.isdir(target):
-        os.mkdir(target)
-    logger.info("welcome to upload`")
-    file = request.files['file'] 
-    filename = secure_filename(file.filename)
-    destination="/".join([target, filename])
-    file.save(destination)
-    session['uploadFilePath']=destination
-    return destination
+def upload():
+	"""Handles the upload of a file."""
+	d = dict()
+	try:
+		file = request.files['file_from_react']
+		filename = file.filename
+		print(f"Uploading file {filename}")
+		file_bytes = file.read()
+		file_content = BytesIO(file_bytes).readlines()
+		print(file_content)
+		d['status'] = 1
+	
+	except Exception as e:
+		print(f"Couldn't upload file {e}")
+		d['status'] = 0
+
+	return jsonify(d)
 
 	
 # Running app
 if __name__ == '__main__':
 	app.run(debug=True)
 
-
+# flask_cors.CORS(app, expose_headers='Authorization')
 
 
