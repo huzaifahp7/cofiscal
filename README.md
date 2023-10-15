@@ -4,6 +4,9 @@
   <strong>Guiding your financial future, one loan at a time!</strong>
 </div>
 
+![CoFiscal GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTI2ZmppZGZveWZ1am55a3J2OXhmdnM3M29sdXFueWo3eHhqc3NneiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bMycGOQLESDCEnLNUz/giphy.gif)
+
+
 ## 💰 **Inspiration**
 CoFiscal was born from a realization that there existed a significant gap in the market—an alarming lack of accessible information and education for individuals considering loans, leading to uninformed financial decisions, which directly impacted the default rates. This insight emerged during the ideation process when we delved into financial data and lending statistics.
 
