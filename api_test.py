@@ -17,14 +17,14 @@ from PaLM_script import *
 import google.generativeai as palm
 import re
 import pytesseract
-import re
 from pdf2image import convert_from_path
+from pdfminer.high_level import extract_text
+from ocr_revised import *
 
 logging.basicConfig(level=logging.INFO)
 
 logger = logging.getLogger('HELLO WORLD')
 
-x = datetime.datetime.now()
 UPLOAD_FOLDER = '/'
 
 # Initializing flask app
@@ -41,7 +41,10 @@ def model():
 	prediction = myModel.predict([list(data.values())], num_iteration=myModel.best_iteration)
 	print(f"Debugger: {prediction.tolist()}")
 	for keys in data:
-		data[keys] = int(data[keys])
+		if keys == 'debtToIncomeRatio' or keys == 'interestRate':
+			data[keys] = float(data[keys])
+		else:
+		    data[keys] = int(data[keys])
 	nodeNeighbour = neigh(list(data.values()))
 
 	mList = [nodeNeighbour.iloc[:1,:].values.flatten().tolist(),
@@ -68,32 +71,39 @@ def upload():
 	d = dict()
 	try:
 		file = request.files['file_from_react']
-        if file:
-            if not os.path.exists(UPLOAD_FOLDER):
-                os.makedirs(UPLOAD_FOLDER)
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(file_path)
+		if file:
+			if not os.path.exists(UPLOAD_FOLDER):
+				os.makedirs(UPLOAD_FOLDER)
+			filename = secure_filename(file.filename)
+			file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+			file.save(file_path)
 		d['status'] = 1
-        output = extract_features_from_pdf(file_path)
-        ocr = {'Read':output}
+		output = extract_features_from_pdf(file_path)
+		print(output)
+		ocr = {'Read':output}
 	except Exception as e:
 		print(f"Couldn't upload file {e}")
 		d['status'] = 0
-
-    json_object = json.dumps(ocr, indent=4)
-    return json_object
+	
+	json_object = json.dumps(ocr, indent=4)
+	return json_object
 
 @app.route('/gpt', methods=['POST'])
 def analysis():
     data = request.json
-    values = data.values()
-    output = generate_text(values[1], values[2], values[3], values[6], values[7], values[8], loan_purp[13], loan_purp[-1])
-    dict = {
+    values = list(data.values())
+
+    output = generate_text(
+     str(values[1]),str(values[2]), str(values[3]), str(values[6]),str(values[7]),str(values[8]),int(values[-3]),str(values[-1])
+)
+    print(output)
+    dicti = {
         'predict':output
         }
-    json_object = json.dumps(dict, indent=4)
-	return json_object
+	
+    json_object = json.dumps(dicti, indent=4)
+    
+    return json_object
     
 	
 # Running app
