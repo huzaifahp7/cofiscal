@@ -29,8 +29,9 @@ Upon the conceptualization of CoFiscal, our vision was to empower borrowers with
 CoFiscal is a cutting-edge financial platform that leverages advanced AI models to perform in-depth analyses of your financial profile. We break down your financial data to offer you insights and guidance, helping you make informed decisions about loans. We're essentially your financial navigator, providing a roadmap to safer and smarter borrowing choices. With CoFiscal, you can confidently embark on your financial journey, knowing that your future is being thoughtfully considered and protected.
 
 ## 🛠️ **How we built it**
-Programming Languages: Python was chosen for its versatility in handling data preprocessing, machine learning, and integrating various components.
-Machine Learning Models: LightGBM implemented from sklearn was employed for its efficiency in gradient boosting, making it a suitable choice for predicting loan default probabilities.
+**Programming Languages:** Python was chosen for its versatility in handling data preprocessing, machine learning, and integrating various components.
+
+**Machine Learning Models:** LightGBM implemented from sklearn was employed for its efficiency in gradient boosting, making it a suitable choice for predicting loan default probabilities.
 
 **Data Preprocessing:** NumPy, RegEx and Pandas libraries were essential for data preprocessing, including tasks such as data cleaning, feature engineering, and handling numerical data.
 
