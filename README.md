@@ -102,6 +102,11 @@ The next step in the growth of CoFiscal is the implementation of the following f
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 🌐 Devpost
+For a deeper dive into our journey and the creation of CoFiscal, check out our story on [Devpost](https://devpost.com/software/cofiscal)!
+
+[![Devpost](https://img.shields.io/badge/Our%20Story%20on-Devpost-blue?logo=devpost&style=for-the-badge)](https://devpost.com/software/cofiscal)
+
 ## 🚀 Our Team
 
 We're a group of passionate developers working together to make a difference. Meet our team:
