@@ -92,11 +92,11 @@ CoFiscal is a cutting-edge financial platform that leverages advanced AI models 
 The next step in the growth of CoFiscal is the implementation of the following features that we have planned, making it more holistic and feature-heavy for both the banks and borrowers:
 
 **Market Information:** This is a feature that is going to scrape reliable financial news websites and filter the information to provide the borrowers with valuable loan-related information about the market and whether it is the best time to take loans. It would be an addition, helping further educate the borrower in making smarter financial decisions.
-\
+
 **Simulator:** This would be assistance provided on the website wherein the user would be able to toggle the interest rate, loan term and loan amount and get the probability of defaulting in order to help them find the range of loans that are best suited for them. This would be a dynamic feature which would mean that all the updation of the variables and generation of the prediction happens in real time.
 
 **Loan Recs:** This is another feature that would provide the user with all the available loans providers and the information that the bank provides about the load in order to have a collection of all options for the user which they can choose from in case of searching for loans.
-\
+
 **Improved OCR:** This is improving existing functionality to accept more kinds of pdf and scrape all the data possible from the document in order to simplify and make the user interaction with the website easier.
 
 ## License
