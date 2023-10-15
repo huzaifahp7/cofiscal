@@ -1,7 +1,7 @@
 <div align="center">
   <br>
   <h1>CoFiscal 🪙</h1>
-  <strong>For Empowering Community</strong>
+  <strong>Guiding your financial future, one loan at a time!</strong>
 </div>
 
 ## 💰 **Inspiration**
@@ -10,6 +10,17 @@ CoFiscal was born from a realization that there existed a significant gap in the
 The statistics revealed that up to 35% of loan applicants had limited knowledge of their credit scores, leading to suboptimal loan decisions and higher default rates. It became evident that informed borrowers have a better chance of securing loans that align with their financial capacity and objectives.
 
 Upon the conceptualization of CoFiscal, our vision was to empower borrowers with data-driven insights, helping them make informed decisions and reduce the likelihood of default. This will result in fewer borrowers defaulting and assist banks in mitigating losses, improving loan performance, enhancing portfolio quality, and producing targeted loan schemes.
+
+# Table of Contents
+
+1. [Inspiration](#💰-inspiration)
+2. [What it does](#⚙️-what-it-does)
+3. [How we built it](#🛠️-how-we-built-it)
+4. [Challenges we ran into](#⛔-challenges-we-ran-into)
+5. [Accomplishments that we're proud of](#🏆-accomplishments-that-were-proud-of)
+6. [What we learned](#📝-what-we-learned)
+7. [What's next for CoFiscal](#🛫-whats-next-for-cofiscal)
+
 
 ## ⚙️ **What it does**
 CoFiscal is a cutting-edge financial platform that leverages advanced AI models to perform in-depth analyses of your financial profile. We break down your financial data to offer you insights and guidance, helping you make informed decisions about loans. We're essentially your financial navigator, providing a roadmap to safer and smarter borrowing choices. With CoFiscal, you can confidently embark on your financial journey, knowing that your future is being thoughtfully considered and protected.
