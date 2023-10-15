@@ -6,6 +6,8 @@ import Router, { useRouter } from "next/navigation";
 const LoanApplicationForm = () => {
   const router = useRouter();
 
+  const [file, setFile] = useState();
+
   const [formData, setFormData] = useState({
     age: 0,
     income: 0,
@@ -69,12 +71,60 @@ const LoanApplicationForm = () => {
     return keyValuePairs.join('&');
   }
 
+  
+
+  const handleFile = (e) => {
+    e.preventDefault()
+    console.log(file)
+    if(file !== undefined) {
+      const fileData = new FormData();
+      fileData.append('file_from_react', file);
+
+      fetch("http://127.0.0.1:5000/upload", {
+      method: "POST",
+      body: fileData
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const autoData = data.Read
+        const newMortgage = (autoData["Has Mortgage"] === "No") ? 0 : 1
+        console.log(newMortgage)
+
+        setFormData({
+          ...formData,
+          income: autoData["Income 2021"],
+          creditScore: autoData["Credit Score"],
+          age: autoData["Age"],
+          mortgage: newMortgage,
+        });
+      })
+      .catch((error) => console.error(error));
+
+    }
+    else {
+      console.log("No file loaded")
+    }
+  }
+
   return (
     <form
       onSubmit={handleSubmit}
       className="w-full items-center h-fit bg-gradient-to-br from-cyan-400 via-violet-700 to-violet-700 p-40"
     >
-      <div className="grid grid-cols-2 gap-x-32 gap-y-5">
+
+    
+    <div className="flex flex-col">
+    <span className="text-white text-[40px] font-semibold">Enter your details:</span>
+    <span className=" mt-4 text-white text-[20px] font-medium">We will process these details and create a risk profile for you, giving you the likelihood of you defaulting on your loan.</span>
+    </div>
+
+    <div className="flex flex-col mt-12">
+    <input type="file" onChange={(e) => setFile(e.target.files[0])} placeholder="Upload File here"/>
+    <button type="button" className="w-fit mt-4 text-white border-2 border-white px-5 py-2 rounded-lg" onClick={handleFile}>Preload data</button>
+    </div>
+
+
+      <div className="mt-20 grid grid-cols-2 gap-x-32 gap-y-5">
         <div className="flex flex-col">
           <label htmlFor="age" className="text-white">
             Age:
