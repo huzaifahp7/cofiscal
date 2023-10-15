@@ -47,6 +47,9 @@ Machine Learning Models: LightGBM implemented from sklearn was employed for its 
 \
 **Testing and Evaluation:** The model was rigorously tested with 500 epochs, and its performance was evaluated on both seen and unseen data. This comprehensive testing resulted in the reported accuracy, precision, recall, and F1 scores.\
 
+<img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/python2.png' height='30'/>  <img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/html.svg' width='30'/> <img src='https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/java.svg' width='30'/>
+<img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/css.svg' width='30'/> <img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/js.svg' width='30'/> 
+
 ## ⛔ **Challenges we ran into**
 **Skewed Dataset:** The dataset we used was heavily skewed, with 98% of entries representing loans that did not default, making model accuracy appear high (88%) on seen data but resulting in very low accuracy (15%) on unseen data.\
 \
@@ -57,9 +60,6 @@ Machine Learning Models: LightGBM implemented from sklearn was employed for its 
 **Integration Challenges:** Connecting the OCR feature with Flask, our web framework, presented technical hurdles due to compatibility issues between libraries. This challenge required careful debugging and troubleshooting.\
 \
 **Front-end Integration:** We encountered difficulties connecting the front-end with Flask, particularly because none of the team members were Flask experts. This integration issue demanded significant time and effort to resolve.\
-
-<img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/python2.png' height='30'/>  <img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/html.svg' width='30'/> <img src='https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/java.svg' width='30'/>
-<img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/css.svg' width='30'/> <img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/js.svg' width='30'/> 
 
 ## 🏆 **Accomplishments that we're proud of**
 **Data Skewness Tackled:** Our solution to the extreme data skewness, through Synthetic Minority Over-sampling Technique (SMOTE), not only balanced the dataset but also significantly improved model performance. By generating synthetic data points for the minority class, we made the model more resilient to unseen data.\
