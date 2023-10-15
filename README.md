@@ -31,7 +31,7 @@ Machine Learning Models: LightGBM implemented from sklearn was employed for its 
 **Version Control:** Collaborative development and version control were managed using Git, allowing the team to work seamlessly on the project and keep track of code changes.\
 \
 **Testing and Evaluation:** The model was rigorously tested with 500 epochs, and its performance was evaluated on both seen and unseen data. This comprehensive testing resulted in the reported accuracy, precision, recall, and F1 scores.\
-\
+
 ## ⛔ **Challenges we ran into**
 **Skewed Dataset:** The dataset we used was heavily skewed, with 98% of entries representing loans that did not default, making model accuracy appear high (88%) on seen data but resulting in very low accuracy (15%) on unseen data.\
 \
@@ -42,7 +42,7 @@ Machine Learning Models: LightGBM implemented from sklearn was employed for its 
 **Integration Challenges:** Connecting the OCR feature with Flask, our web framework, presented technical hurdles due to compatibility issues between libraries. This challenge required careful debugging and troubleshooting.\
 \
 **Front-end Integration:** We encountered difficulties connecting the front-end with Flask, particularly because none of the team members were Flask experts. This integration issue demanded significant time and effort to resolve.\
-\
+
 ## 🏆 **Accomplishments that we're proud of**
 **Data Skewness Tackled:** Our solution to the extreme data skewness, through Synthetic Minority Over-sampling Technique (SMOTE), not only balanced the dataset but also significantly improved model performance. By generating synthetic data points for the minority class, we made the model more resilient to unseen data.\
 \
@@ -52,7 +52,7 @@ Machine Learning Models: LightGBM implemented from sklearn was employed for its 
 **Empowering Financial Decision-Making:** We take pride in providing users with a powerful tool to make informed financial decisions. By predicting their probability of loan default and offering insights through PaLM API, we help users secure their financial future.\
 \
 **Front-end Excellence with React, Next.js, and Flask Expertise:** We've combined the power of React, Next.js, and Flask to create a visually stunning and user-friendly front-end. Through dedication and learning, we overcame initial challenges in connecting the front end to Flask, ensuring seamless integration and improved user interaction.\
-\
+
 ## 📝 What we learned
 **Data Skewness Understanding:** We gained a deep understanding of the significance of data skewness in machine learning models. Recognizing the importance of balanced datasets, we realized that the accuracy metric alone might not reflect model performance accurately.\
 \
@@ -65,7 +65,7 @@ Machine Learning Models: LightGBM implemented from sklearn was employed for its 
 **Dependency Management:** We learned that careful review and management of library dependencies are essential for seamless integration between different components of the project. This experience emphasized the significance of thorough testing and compatibility checks.\
 \
 **Front-end Integration:** Overcoming front-end challenges through teamwork and learning was an invaluable experience. Seeking guidance from various documentations and investing time in understanding the Flask framework improved our problem-solving skills and ability to handle similar issues effectively in the future.\
-\
+
 ## 🛫 What's next for CoFiscal
 The next step in the growth of CoFiscal is the implementation of the following features that we have planned, making it more holistic and feature-heavy for both the banks and borrowers:
 
