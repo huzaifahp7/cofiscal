@@ -6,25 +6,96 @@ import { useEffect, useState } from "react";
 
 export default function UserOutput({ data, formData, result }) {
   var percentage = (data.prediction * 100).toFixed(2);
-  
+
   console.log(parseInt(percentage));
   const greenBar = "bg-green-500 relative h-2 rounded-lg w-[" + "50" + "%]";
   console.log(greenBar);
 
-  const [circleColor, setCircleColor] = useState("danger")
+  const [circleColor, setCircleColor] = useState("danger");
 
-  const divClassName = "flex w-20 h-16 py-2 px-10 items-center justify-center font-semibold"
+  const divClassName =
+    "flex w-20 h-16 py-2 px-10 items-center justify-center font-semibold";
 
   useEffect(() => {
-    if(percentage >= 0 && percentage <= 30) {
-      setCircleColor("success")
+    if (percentage >= 0 && percentage <= 30) {
+      setCircleColor("success");
     } else if (percentage >= 30 && percentage < 60) {
-      setCircleColor("warning")
+      setCircleColor("warning");
     } else {
-      setCircleColor("danger")
+      setCircleColor("danger");
     }
-  }, [])
+  }, []);
 
+  function mapEducationNumberToString(educationNumber) {
+    switch (educationNumber) {
+      case "1":
+        return "Bachelor's";
+      case "2":
+        return "Master's";
+      case "3":
+        return "High School";
+      case "4":
+        return "PhD";
+      default:
+        return "Null";
+    }
+  }
+
+  function mapEmploymentNumberToString(employmentNumber) {
+    switch (employmentNumber) {
+      case "1":
+        return "Full-time";
+      case "2":
+        return "Unemployed";
+      case "3":
+        return "Self-employed";
+      case "4":
+        return "Part-time";
+      default:
+        return "Null";
+    }
+  }
+
+  function mapMaritalNumberToString(employmentNumber) {
+    switch (employmentNumber) {
+      case "1":
+        return "Divorced";
+      case "2":
+        return "Married";
+      case "3":
+        return "Single";
+      default:
+        return "Null";
+    }
+  }
+
+  function mapLoanPurposeNumberToString(employmentNumber) {
+    switch (employmentNumber) {
+      case "1":
+        return "Other";
+      case "2":
+        return "Auto";
+      case "3":
+        return "Business";
+      case "4":
+        return "Home";
+      case "5":
+        return "Education";
+      default:
+        return "Null";
+    }
+  }
+
+  function mapBooleanNumberToString(employmentNumber) {
+    switch (employmentNumber) {
+      case "1":
+        return "Yes";
+      case "0":
+        return "No";
+     
+    }
+  }
+  
 
   return (
     <div className="w-full h-fit bg-gradient-to-br from-cyan-400 via-violet-700 to-violet-700">
@@ -65,21 +136,32 @@ export default function UserOutput({ data, formData, result }) {
         </div>
 
         <div className="flex flex-col w-full">
-          {result.predict.slice(5).map((item) => {
+          {result.predict.slice(4).map((item) => {
             return (
-                <span key={item} className="text-white mt-4 tracking-widest text-lg">
-                  {item.replaceAll('*', '')}
-                </span>
+              <span
+                key={item}
+                className="text-white mt-4 tracking-widest text-lg"
+              >
+                {item.replaceAll("*", "")}
+              </span>
             );
           })}
         </div>
 
         <div className="flex flex-col mt-20 items-start w-full">
-          <span className="text-white  text-[48px] font-semibold">Comparison with existing cases</span>
-          <span className="text-white text-[24px] font-medium mt-4">Let us compare your file against 7 similar cases to see whether they defaulted on their loans.</span>
-          <span className="text-white text-base font-light mt-2">Note: We cannot account for unpredictable factors like health concerns, accidents etc. Please consider these factors before making a final decision</span>
+          <span className="text-white  text-[48px] font-semibold">
+            Comparison with existing cases
+          </span>
+          <span className="text-white text-[24px] font-medium mt-4">
+            Let us compare your file against 7 similar cases to see whether they
+            defaulted on their loans.
+          </span>
+          <span className="text-white text-base font-light mt-2">
+            Note: We cannot account for unpredictable factors like health
+            concerns, accidents etc. Please consider these factors before making
+            a final decision
+          </span>
         </div>
-        
 
         <div className="overflow-x-auto mt-20 pb-4 w-full scrollbar scrollbar-thumb-neutral-400 scrollbar-thumb-rounded-xl">
           <div className="grid grid-cols-17 w-[140%] gap-y-5 bg-blue-400 mt-2 rounded-3xl  ">
@@ -165,25 +247,25 @@ export default function UserOutput({ data, formData, result }) {
               <span>{formData.debtToIncomeRatio}</span>
             </div>
             <div className="flex w-20 h-16 py-2 px-10 items-center justify-center">
-              <span>{formData.education}</span>
+              <span>{mapEducationNumberToString(formData.education)}</span>
             </div>
             <div className="flex w-20 h-16 py-2 px-10 items-center justify-center">
-              <span>{formData.employmentType}</span>
+              <span className="text-center">{mapEmploymentNumberToString(formData.employmentType)}</span>
             </div>
             <div className="flex w-20 h-16 py-2 px-10 items-center justify-center">
-              <span>{formData.maritalStatus}</span>
+              <span>{mapMaritalNumberToString(formData.maritalStatus)}</span>
             </div>
             <div className="flex w-20 h-16 py-2 px-10 items-center justify-center">
-              <span>{formData.mortgage}</span>
+              <span>{mapBooleanNumberToString(formData.mortgage)}</span>
             </div>
             <div className="flex w-20 h-16 py-2 px-10 items-center justify-center">
-              <span>{formData.dependents}</span>
+              <span>{mapBooleanNumberToString(formData.dependents)}</span>
             </div>
             <div className="flex w-20 h-16 py-2 px-10 items-center justify-center">
-              <span>{formData.loanPurpose}</span>
+              <span>{mapLoanPurposeNumberToString(formData.loanPurpose)}</span>
             </div>
             <div className="flex w-20 h-16 py-2 px-10 items-center justify-center">
-              <span>{formData.coSigner}</span>
+              <span>{mapBooleanNumberToString(formData.coSigner)}</span>
             </div>
             <div className="flex w-20 h-16 py-2 px-10 items-center justify-center">
               <span>{percentage}</span>
@@ -201,7 +283,7 @@ export default function UserOutput({ data, formData, result }) {
                       key={cell}
                       className="flex w-20 h-16 py-2 px-10 items-center justify-center"
                     >
-                      <span>{cell}</span>
+                      <span className="text-center">{cell}</span>
                     </div>
                   );
                 })}

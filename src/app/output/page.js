@@ -31,45 +31,58 @@ export default function Output() {
   const [result, setResult] = useState();
   const [loading, setLoading] = useState(false);
 
-  console.log(formData);
-
   useEffect(() => {
     async function fetchData() {
-      await fetch("http://127.0.0.1:5000/model", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => response.json())
-        .then(async (data) => {
-          setApiData(data);
-          console.log(data);
-          formData["prediction"] = apiData.prediction;
-        })
-        .catch((error) => console.error(error))
-        .finally(
-          setTimeout(function () {
-            fetch("http://127.0.0.1:5000/gpt", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData),
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                setResult(data);
-                setLoading(true);
-              })
-              .catch((error) => console.error(error));
-          }, 5000)
-        );
+      try {
+        const response = await fetch("http://127.0.0.1:5000/model", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setApiData(data);
+
+        // Now you can update formData with apiData.prediction
+        const updatedFormData = {
+          ...formData,
+          prediction: data.prediction,
+        };
+
+        // Set the updated form data
+        setFormData(updatedFormData);
+
+        // Fetch the next data after 5 seconds
+        setTimeout(async function () {
+          const response = await fetch("http://127.0.0.1:5000/gpt", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedFormData), // Use the updated data
+          });
+
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+
+          const resultData = await response.json();
+          setResult(resultData);
+          setLoading(true);
+        }, 5000);
+      } catch (error) {
+        console.error(error);
+      }
     }
 
     fetchData();
-  }, []);
+  }, [formData]);
 
   return (
     <div>

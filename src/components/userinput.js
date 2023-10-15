@@ -2,29 +2,33 @@
 import React, { useState } from "react";
 import ReactSelect from "react-select";
 import Router, { useRouter } from "next/navigation";
+import UploadIcon from "@mui/icons-material/Upload";
+import { CircularProgress } from "@nextui-org/react";
 
 const LoanApplicationForm = () => {
   const router = useRouter();
 
   const [file, setFile] = useState();
 
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
-    age: 0,
-    income: 0,
-    loanAmount: 0,
-    creditScore: 0,
-    monthsEmployed: 0,
-    creditLines: 0,
-    interestRate: 0,
-    loanTerm: 0,
-    debtToIncomeRatio: 0,
-    education: 0,
-    employmentType: 0,
-    maritalStatus: 0,
-    mortgage: 0,
-    dependents: 0,
-    loanPurpose: 0,
-    coSigner: 0,
+    age: 18,
+    income: 25000,
+    loanAmount: 10000,
+    creditScore: 400,
+    monthsEmployed: 12,
+    creditLines: 1,
+    interestRate: 2,
+    loanTerm: 18,
+    debtToIncomeRatio: 0.25,
+    education: 1,
+    employmentType: 1,
+    maritalStatus: 1,
+    mortgage: 1,
+    dependents: 1,
+    loanPurpose: 1,
+    coSigner: 1,
   });
 
   const [errors, setErrors] = useState({});
@@ -49,6 +53,9 @@ const LoanApplicationForm = () => {
     });
   };
 
+  if (file !== undefined) {
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -59,70 +66,109 @@ const LoanApplicationForm = () => {
     if (Object.keys(newErrors).length === 0) {
       // Handle form submission, e.g., send data to the server
       console.log(formData);
-      router.push("/output?" + objectToQueryString(formData))
+      router.push("/output?" + objectToQueryString(formData));
     }
   };
 
   function objectToQueryString(obj) {
     const keys = Object.keys(obj);
-    const keyValuePairs = keys.map(key => {
-      return encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]);
+    const keyValuePairs = keys.map((key) => {
+      return encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]);
     });
-    return keyValuePairs.join('&');
+    return keyValuePairs.join("&");
   }
 
-  
+  const handleFile = async (event) => {
+    setLoading(true);
+    try {
+      const mfile = event.target.files[0];
+      if (!mfile) {
+        console.log("No file selected");
+        return;
+      }
 
-  const handleFile = (e) => {
-    e.preventDefault()
-    console.log(file)
-    if(file !== undefined) {
+      console.log("File has been received");
+
       const fileData = new FormData();
-      fileData.append('file_from_react', file);
+      fileData.append("file_from_react", mfile);
 
-      fetch("http://127.0.0.1:5000/upload", {
-      method: "POST",
-      body: fileData
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const autoData = data.Read
-        const newMortgage = (autoData["Has Mortgage"] === "No") ? 0 : 1
-        console.log(newMortgage)
+      const response = await fetch("http://127.0.0.1:5000/upload", {
+        method: "POST",
+        body: fileData,
+      });
 
-        setFormData({
-          ...formData,
-          income: autoData["Income 2021"],
-          creditScore: autoData["Credit Score"],
-          age: autoData["Age"],
-          mortgage: newMortgage,
-        });
-      })
-      .catch((error) => console.error(error));
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
+      const data = await response.json();
+      const autoData = data.Read;
+      const newMortgage = autoData["Has Mortgage"] === "No" ? 0 : 1;
+      console.log(newMortgage);
+
+      setFormData({
+        ...formData,
+        income: autoData["Income 2021"],
+        creditScore: autoData["Credit Score"],
+        age: autoData["Age"],
+        mortgage: newMortgage,
+      });
+
+      setLoading(false);
+    } catch (error) {
+      console.error("An error occurred:", error);
     }
-    else {
-      console.log("No file loaded")
-    }
-  }
+  };
 
   return (
     <form
       onSubmit={handleSubmit}
       className="w-full items-center h-fit bg-gradient-to-br from-cyan-400 via-violet-700 to-violet-700 p-40"
     >
+      <div className="flex flex-col items-center justify-center">
+        <span className="text-white text-[40px] font-semibold">
+          Enter your details:
+        </span>
+        <span className=" mt-4 text-white text-[20px] font-medium">
+          We will process these details and create a risk profile for you,
+          giving you the likelihood of you defaulting on your loan. To autofill,
+          upload your credit report.
+        </span>
+      </div>
 
-    
-    <div className="flex flex-col">
-    <span className="text-white text-[40px] font-semibold">Enter your details:</span>
-    <span className=" mt-4 text-white text-[20px] font-medium">We will process these details and create a risk profile for you, giving you the likelihood of you defaulting on your loan.</span>
-    </div>
+      <div className="flex flex-col mt-12">
+        <label className="w-full cursor-grab relative bg-transparent border-2 border-white px-10 py-10 text-center flex justify-center rounded-lg">
+          {loading ? (
+            <CircularProgress color="primary" size="lg" />
+          ) : (
+            <div>
+              <UploadIcon className="text-white me-4" />
+              <span className="text-white">Select PDF</span>
+              <input
+                type="file"
+                // onChange={(e) => {
+                //   setFile(e.target.files[0]);
+                //   console.log("File has been uploaded")
 
-    <div className="flex flex-col mt-12">
-    <input type="file" onChange={(e) => setFile(e.target.files[0])} placeholder="Upload File here"/>
-    <button type="button" className="w-fit mt-4 text-white border-2 border-white px-5 py-2 rounded-lg" onClick={handleFile}>Preload data</button>
-    </div>
-
+                //   setTimeout(function(){
+                //     handleFile();
+                //   }, 1000)
+                // }}
+                onChange={handleFile}
+                placeholder="Upload File here"
+                className="invisible absolute"
+              />
+            </div>
+          )}
+        </label>
+        {/* <button
+          type="button"
+          className="w-fit mt-4 text-white border-2 border-white px-5 py-2 rounded-lg"
+          onClick={handleFile}
+        >
+          Preload data
+        </button> */}
+      </div>
 
       <div className="mt-20 grid grid-cols-2 gap-x-32 gap-y-5">
         <div className="flex flex-col">
@@ -435,9 +481,11 @@ const LoanApplicationForm = () => {
         </div>
 
         {/* Add similar input fields for other form inputs */}
+      </div>
+      <div className="flex flex-col items-center justify-center">
         <button
           type="submit"
-          className="col-span-2 border-2 border-white w-1/2 mt-20 py-2 rounded-lg text-white"
+          className="border-2 border-white w-1/2 mt-20 py-2 rounded-lg text-white"
         >
           View Score
         </button>
