@@ -15,6 +15,37 @@ The statistics revealed that up to 35% of loan applicants had limited knowledge 
 
 Upon the conceptualization of CoFiscal, our vision was to empower borrowers with data-driven insights, helping them make informed decisions and reduce the likelihood of default. This will result in fewer borrowers defaulting and assist banks in mitigating losses, improving loan performance, enhancing portfolio quality, and producing targeted loan schemes.
 
+## Getting Started
+
+The project relies on several Python libraries for its functionality. These dependencies are specified in the `requirements.txt` file. 
+
+To set up your development environment and install all these dependencies, follow the steps below:
+
+1. Ensure you have Python and `pip` installed on your machine.
+2. Navigate to the root directory of the project using your terminal or command prompt.
+3. Run the following command:
+
+```bash
+pip install -r requirements.txt
+
+Next, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
 # Table of Contents
 
 1. [What it does](#what-it-does)
