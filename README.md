@@ -58,6 +58,10 @@ Machine Learning Models: LightGBM implemented from sklearn was employed for its 
 \
 **Front-end Integration:** We encountered difficulties connecting the front-end with Flask, particularly because none of the team members were Flask experts. This integration issue demanded significant time and effort to resolve.\
 
+## Programming Languages
+<img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/python2.png' height='30'/>  <img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/html.svg' width='30'/> <img src='https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/java.svg' width='30'/>
+<img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/css.svg' width='30'/> <img src = 'https://github.com/MarikIshtar007/MarikIshtar007/blob/master/images/js.svg' width='30'/> 
+
 ## 🏆 **Accomplishments that we're proud of**
 **Data Skewness Tackled:** Our solution to the extreme data skewness, through Synthetic Minority Over-sampling Technique (SMOTE), not only balanced the dataset but also significantly improved model performance. By generating synthetic data points for the minority class, we made the model more resilient to unseen data.\
 \
