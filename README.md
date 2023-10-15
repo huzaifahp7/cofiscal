@@ -17,13 +17,12 @@ Upon the conceptualization of CoFiscal, our vision was to empower borrowers with
 
 # Table of Contents
 
-1. [Inspiration](#💰-inspiration)
-2. [What it does](#⚙️-what-it-does)
-3. [How we built it](#🛠️-how-we-built-it)
-4. [Challenges we ran into](#⛔-challenges-we-ran-into)
-5. [Accomplishments that we're proud of](#🏆-accomplishments-that-were-proud-of)
-6. [What we learned](#📝-what-we-learned)
-7. [What's next for CoFiscal](#🛫-whats-next-for-cofiscal)
+1. [What it does](#what-it-does)
+2. [How we built it](#how-we-built-it)
+3. [Challenges we ran into](#challenges-we-ran-into)
+4. [Accomplishments that we're proud of](#accomplishments-that-were-proud-of)
+5. [What we learned](#what-we-learned)
+6. [What's next for CoFiscal](#whats-next-for-cofiscal)
 
 
 ## ⚙️ **What it does**
