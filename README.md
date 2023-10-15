@@ -71,6 +71,7 @@ CoFiscal is a cutting-edge financial platform that leverages advanced AI models 
 **OCR Enhancement:** Our dedication to optimizing the OCR feature sets us apart. We invested time and effort to develop custom code that could interpret credit reports and extract essential user input features accurately. This improvement made the OCR feature highly robust and reduced the likelihood of user input errors.\
 \
 **Machine Learning Excellence:** Achieving an impressive 92.03% accuracy on unseen data using the LightGBM model is a testament to our commitment to excellence in machine learning. We leveraged 500 epochs to fine-tune the model and delivered exceptional results, boasting precision, recall, and F1 score well above industry standards.
+\
 **Empowering Financial Decision-Making:** We take pride in providing users with a powerful tool to make informed financial decisions. By predicting their probability of loan default and offering insights through PaLM API, we help users secure their financial future.\
 \
 **Front-end Excellence with React, Next.js, and Flask Expertise:** We've combined the power of React, Next.js, and Flask to create a visually stunning and user-friendly front-end. Through dedication and learning, we overcame initial challenges in connecting the front end to Flask, ensuring seamless integration and improved user interaction.
