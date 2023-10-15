@@ -12,10 +12,10 @@ CoFiscal is a cutting-edge financial platform that leverages advanced AI models 
 
 ## 🛠️ **How we built it**
 Programming Languages: Python was chosen for its versatility in handling data preprocessing, machine learning, and integrating various components.
-Machine Learning Models: LightGBM implemented from sklearn was employed for its efficiency in gradient boosting, making it a suitable choice for predicting loan default probabilities.\
-\
-**Data Preprocessing:** NumPy, RegEx and Pandas libraries were essential for data preprocessing, including tasks such as data cleaning, feature engineering, and handling numerical data.\
-\
+Machine Learning Models: LightGBM implemented from sklearn was employed for its efficiency in gradient boosting, making it a suitable choice for predicting loan default probabilities.
+
+**Data Preprocessing:** NumPy, RegEx and Pandas libraries were essential for data preprocessing, including tasks such as data cleaning, feature engineering, and handling numerical data.
+
 **Over-sampling Technique:** To tackle the significant data skewness issue in the dataset, SMOTE (Synthetic Minority Over-sampling Technique) was used to generate synthetic data points for the minority class, ultimately balancing the dataset. This was crucial in improving model performance on unseen data.\
 \
 **Front-end Development:** The front-end was built using React for creating user interfaces and Next.js for server-side rendering. This combination provided a robust, interactive, and SEO-friendly user experience.\
