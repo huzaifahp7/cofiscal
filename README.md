@@ -101,3 +101,15 @@ The next step in the growth of CoFiscal is the implementation of the following f
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🚀 Our Team
+
+We're a group of passionate developers working together to make a difference. Meet our team:
+
+- **Farzad Ashfak** - [![GitHub](https://img.shields.io/badge/GitHub-FarzadAshfak-blue?logo=github&style=flat-square)](https://github.com/farzadashfak)
+- **Huzaifa Pardawala** - [![GitHub](https://img.shields.io/badge/GitHub-HuzaifahP7-blue?logo=github&style=flat-square)](https://github.com/huzaifahp7)
+- **Ayush Gharat** - [![GitHub](https://img.shields.io/badge/GitHub-AyushGharat-blue?logo=github&style=flat-square)](https://github.com/ayushgharat)
+- **Aditya Bajoria** - [![GitHub](https://img.shields.io/badge/GitHub-BajoAdi-blue?logo=github&style=flat-square)](https://github.com/Bajo-Adi)
+
+Feel free to check out our profiles and connect with us!
+
