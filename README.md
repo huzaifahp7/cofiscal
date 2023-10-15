@@ -4,7 +4,10 @@
   <strong>Guiding your financial future, one loan at a time!</strong>
 </div>
 
-![CoFiscal GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTI2ZmppZGZveWZ1am55a3J2OXhmdnM3M29sdXFueWo3eHhqc3NneiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bMycGOQLESDCEnLNUz/giphy.gif)
+<p align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTI2ZmppZGZveWZ1am55a3J2OXhmdnM3M29sdXFueWo3eHhqc3NneiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bMycGOQLESDCEnLNUz/giphy.gif" alt="CoFiscal GIF">
+</p>
+
 
 
 ## 💰 **Inspiration**
