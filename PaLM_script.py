@@ -3,7 +3,8 @@ import google.generativeai as palm
 import re
 palm.configure(api_key='AIzaSyAedmPMHxXBrjTQFgOoypvQIYZLiz6L21k')
 
-def generate_text(income, loan_amt, credit_score, interest_rate, loan_term, dti_ratio, loan_purp,prob_def):
+def generate_text(income, loan_amt, credit_score, interest_rate, loan_term, dti_ratio, loan_purp, prob_def):
+    print(prob_def)
     typ = {1:"Other",
            2:"Auto",
            3:"Business",
@@ -61,4 +62,10 @@ def generate_text(income, loan_amt, credit_score, interest_rate, loan_term, dti_
     text = out.last
     entries = text.split('\n\n')
     entries = [entry.strip() for entry in entries if entry.strip()]
+    
+
+
+    # Use regex to add newline after "{number}."
+    entries = [re.sub(r'(\d+\.)', r'\n\1', entry) for entry in entries]
+
     return entries

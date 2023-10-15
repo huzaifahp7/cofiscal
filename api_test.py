@@ -38,13 +38,14 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/model', methods=['POST'])
 def model():
 	data = request.json
+	print(data)
 	prediction = myModel.predict([list(data.values())], num_iteration=myModel.best_iteration)
 	print(f"Debugger: {prediction.tolist()}")
 	for keys in data:
 		if keys == 'debtToIncomeRatio' or keys == 'interestRate':
 			data[keys] = float(data[keys])
 		else:
-		    data[keys] = int(data[keys])
+		    data[keys] = int(float(data[keys]))
 	nodeNeighbour = neigh(list(data.values()))
 
 	mList = [nodeNeighbour.iloc[:1,:].values.flatten().tolist(),
@@ -92,6 +93,7 @@ def upload():
 def analysis():
     data = request.json
     values = list(data.values())
+    print(values)
 
     output = generate_text(
      str(values[1]),str(values[2]), str(values[3]), str(values[6]),str(values[7]),str(values[8]),int(values[-3]),str(values[-1])
