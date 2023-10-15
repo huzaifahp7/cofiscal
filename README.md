@@ -1,4 +1,8 @@
-# cofiscal
+<div align="center">
+  <br>
+  <h1>CoFiscal 🪙</h1>
+  <strong>For Empowering Community</strong>
+</div>
 
 ## 💰 **Inspiration**
 CoFiscal was born from a realization that there existed a significant gap in the market—an alarming lack of accessible information and education for individuals considering loans, leading to uninformed financial decisions, which directly impacted the default rates. This insight emerged during the ideation process when we delved into financial data and lending statistics.
