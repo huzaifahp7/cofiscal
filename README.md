@@ -8,9 +8,9 @@
   <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTI2ZmppZGZveWZ1am55a3J2OXhmdnM3M29sdXFueWo3eHhqc3NneiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bMycGOQLESDCEnLNUz/giphy.gif" alt="CoFiscal GIF">
 </p>
 
-![GitHub issues](https://img.shields.io/github/issues-raw/huzaifahp7/cofiscal)
-![github pull requests](https://img.shields.io/github/issues-pr-raw/huzaifahp7/cofiscal)
-![GitHub last commit](https://img.shields.io/github/last-commit/huzaifahp7/cofiscal)
+![GitHub issues](https://img.shields.io/github/issues/huzaifahp7/cofiscal)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/huzaifahp7/cofiscal)
+![GitHub last commit (main)](https://img.shields.io/github/last-commit/huzaifahp7/cofiscal/main)
 
 ## 💰 **Inspiration**
 CoFiscal was born from a realization that there existed a significant gap in the market—an alarming lack of accessible information and education for individuals considering loans, leading to uninformed financial decisions, which directly impacted the default rates. This insight emerged during the ideation process when we delved into financial data and lending statistics.
